@@ -1,6 +1,10 @@
 // 换位置
 // "ABCD" 每次可以两两交换，最少需要多少次交换达到 "CDAB"
 
+//状态表示 string
+//状态之间的距离
+
+
 #include<iostream>
 #include<queue>
 #include<unordered_map>
