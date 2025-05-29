@@ -10,7 +10,7 @@
 #include<unordered_map>
 using namespace std;
 string str1 = "ACBD"; 
-string str2 = "CDAB";
+string str2 = "ACBD";
 unordered_map<string,int> d;
 queue<string> q;
 
