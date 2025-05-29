@@ -2,8 +2,8 @@
 #include<queue>
 #include<unordered_map>
 using namespace std;
-string s1 = "12345x";
-string s2 = "51234x";
+string s1 = "abcdefx";
+string s2 = "cabefdx";
 
 queue<string> q;
 unordered_map<string, int> d;

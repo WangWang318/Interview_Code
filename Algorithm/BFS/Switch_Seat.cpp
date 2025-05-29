@@ -1,36 +1,29 @@
-// 换位置
-// "ABCD" 每次可以两两交换，最少需要多少次交换达到 "CDAB"
-
-//状态表示 string
-//状态之间的距离
-
-
 #include<iostream>
-#include<queue>
 #include<unordered_map>
+#include<queue>
 using namespace std;
-string str1 = "ACBD"; 
-string str2 = "ACBD";
-unordered_map<string,int> d;
+
+string str1 = "abcdefx";
+string str2 = "cabfdex";
 queue<string> q;
+unordered_map<string, int> d;
+
 
 int BFS(){
     q.push(str1);
     d[str1] = 0;
-    
     while(q.size()){
         string s = q.front(); q.pop();
-        int distance = d[s];
-        if(s == str2)   return distance;
-        for(int i = 0; i < 4; i++){
-            for(int j = i + 1; j < 4; j++){
-                swap(s[i], s[j]);
-                if(!d.count(s)){
-                    d[s] = distance + 1;
-                    q.push(s);
-                }
-                swap(s[i], s[j]);
+        int dis = d[s];
+        if(s == str2)   return dis;
+        int idx = s.find('x');
+        for(int i = 0; i < str1.size(); i++){
+            swap(s[idx], s[i]);
+            if(!d.count(s)){
+                q.push(s);
+                d[s] = dis + 1;
             }
+            swap(s[idx], s[i]);
         }
     }
     return -1;
@@ -38,7 +31,7 @@ int BFS(){
 
 int main(){
 
-    int ans = BFS();
-    cout<<ans<<endl;
+    cout<<BFS();
+
     return 0;
 }
